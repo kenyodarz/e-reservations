@@ -5,6 +5,8 @@ import com.curso.ereservations.repositories.ClienteRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 @Service
 @Transactional(readOnly = true)
 public class ClienteService {
@@ -27,6 +29,11 @@ public class ClienteService {
     @Transactional
     public void delete(Cliente cliente) {
         this.repository.delete(cliente);
+    }
+
+    @Transactional
+    public List<Cliente> findAll(){
+        return this.repository.findAll();
     }
 
 
