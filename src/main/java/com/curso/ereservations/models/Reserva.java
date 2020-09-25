@@ -13,10 +13,10 @@ public class Reserva {
     @GenericGenerator(name = "system-uuid", strategy = "uuid2")
     private String idReserva;
     @Column
-    @Temporal(TemporalType.DATE)
+    //@Temporal(TemporalType.DATE)
     private LocalDate fechaIngresoReserva;
     @Column
-    @Temporal(TemporalType.DATE)
+    //@Temporal(TemporalType.DATE)
     private LocalDate fechaSalidaReserva;
     @Column
     private int cantidadPersonasReserva;
