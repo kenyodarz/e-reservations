@@ -38,7 +38,7 @@ public class ReservaService extends GenericServiceImpl<Reserva, String> implemen
     @Override
     @NotNull
     @Transactional
-    public List<Reserva> findClientesByIdCliente(String idCliente) {
-        return repository.findClientesByIdCliente(idCliente);
+    public List<Reserva> findReservasByIdCliente(String idCliente) {
+        return repository.findReservasByIdCliente(idCliente);
     }
 }

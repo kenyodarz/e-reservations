@@ -30,7 +30,7 @@ public abstract class GenericServiceImpl<T, ID extends Serializable> implements 
 
     @Override
     public List<T> getAll() {
-        return null;
+        return getRepository().findAll();
     }
 
     @Override

@@ -32,10 +32,22 @@ public class Cliente {
     @NotBlank
     private String emailCliente;
     @OneToMany(fetch = FetchType.LAZY)
+    @JoinTable(name ="clientes_reservas",
+            joinColumns = @JoinColumn(name = "cliente_id_cliente"),
+            inverseJoinColumns = @JoinColumn(name = "reservas_id_reserva")
+    )
     private List<Reserva> reservas;
 
     public Cliente() {
         this.reservas = new ArrayList<>();
+    }
+
+    public void addReserva(Reserva reserva){
+        this.reservas.add(reserva);
+    }
+
+    public void removeReserva(Reserva reserva){
+        this.reservas.remove(reserva);
     }
 
     public String getIdCliente() {

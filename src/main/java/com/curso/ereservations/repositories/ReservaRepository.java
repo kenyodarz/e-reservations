@@ -16,6 +16,6 @@ public interface ReservaRepository extends JpaRepository<Reserva, String> {
     @Query("select r from Reserva r where r.fechaIngresoReserva =:fechaInicio and r.fechaSalidaReserva=:fechaSalida")
     List<Reserva> findByDate(@Param("fechaInicio") LocalDate fechaInicio,@Param("fechaSalida") LocalDate fechaSalida);
 
-    @Query("select r from Reserva r where r.cliente.idCliente = ?1")
-    List<Reserva> findClientesByIdCliente(String idCliente);
+    @Query("select r from Reserva r where r.idCliente = ?1")
+    List<Reserva> findReservasByIdCliente(String idCliente);
 }

@@ -10,5 +10,5 @@ import java.util.List;
 public interface ReservaServiceAPI extends GenericServiceAPI<Reserva, String> {
     List<Reserva> findByDate(@Param("fechaInicio") LocalDate fechaInicio, @Param("fechaSalida") LocalDate fechaSalida);
 
-    List<Reserva> findClientesByIdCliente(String idCliente);
+    List<Reserva> findReservasByIdCliente(String idCliente);
 }

@@ -3,28 +3,30 @@ package com.curso.ereservations.models;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
 
 @Entity
-@Table(name="reservas")
+@Table(name = "reservas")
 public class Reserva {
     @Id
     @GeneratedValue(generator = "system-uuid")
     @GenericGenerator(name = "system-uuid", strategy = "uuid2")
     private String idReserva;
     @Column
-    //@Temporal(TemporalType.DATE)
+    @NotNull
     private LocalDate fechaIngresoReserva;
     @Column
-    //@Temporal(TemporalType.DATE)
+    @NotNull
     private LocalDate fechaSalidaReserva;
     @Column
+    @Min(value = 1, message = "La cantidad minima de personas tiene que se 1")
     private int cantidadPersonasReserva;
     @Column
     private String descripcionReserva;
-    @ManyToOne
-    @JoinColumn(name = "id_cliente")
-    private Cliente cliente;
+    @Column
+    private String idCliente;
 
     public Reserva() {
 
@@ -70,11 +72,11 @@ public class Reserva {
         this.descripcionReserva = descripcionReserva;
     }
 
-    public Cliente getCliente() {
-        return cliente;
+    public String getIdCliente() {
+        return idCliente;
     }
 
-    public void setCliente(Cliente cliente) {
-        this.cliente = cliente;
+    public void setIdCliente(String idCliente) {
+        this.idCliente = idCliente;
     }
 }
